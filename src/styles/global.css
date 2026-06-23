@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root {
+  --bg:           #F7F5F0;   /* warm off-white background */
+  --surface:      #FFFFFF;   /* card / panel backgrounds */
+  --text:         #1C1917;   /* warm near-black */
+  --muted:        #78716C;   /* secondary text */
+  --accent:       #2D6A4F;   /* forest green */
+  --accent-light: #D8F3DC;   /* light green for tags/badges */
+  --border:       #E7E5E0;   /* warm light gray borders */
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+html, body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ─── Typography Helpers ─────────────────────────────── */
+.font-display {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+.font-label {
+  font-family: 'DM Mono', 'Courier New', monospace;
+}
+
+/* ─── Signature Element: Animated hero underline ─────── */
+/* The ONE motion moment on the site — everything else is still */
+.hero-name {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-name::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  animation: draw-line 0.9s ease forwards 0.4s;
+}
+
+@keyframes draw-line {
+  to { width: 100%; }
+}
+
+/* ─── Utility ────────────────────────────────────────── */
+a {
+  transition: color 0.15s ease;
+}

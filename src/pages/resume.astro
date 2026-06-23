@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experience = [
+  {
+    title: 'Candidate Support Experience Manager',
+    company: 'Autodesk',
+    location: 'Portland, OR (Remote)',
+    dates: 'Sep 2021 – Sep 2023',
+    summary: 'Led a 10-person cross-regional support team across North America and Latin America, delivering operational excellence for Autodesk\'s recruiting function within the Regional People Services organization.',
+    bullets: [
+      'Maintained 100% SLA compliance across all markets',
+      'Cut candidate support wait times by 80% — from 5 days to 24 hours — through scheduling automation and workflow redesign',
+      'Reduced interview booking friction by 50% via cross-functional implementation of new tooling',
+      'Saved 5+ hours per week team-wide by streamlining data collection and reporting processes',
+      'Built PowerBI dashboards for MBRs and QBRs, giving senior leadership real-time visibility into team performance',
+      'Owned SOP and knowledge base documentation to ensure consistent quality across the team',
+    ],
+  },
+  {
+    title: 'Community Support Manager → Team Coordinator → Specialist I & II',
+    company: 'Airbnb',
+    location: 'Portland, OR · 8 years',
+    dates: 'Jul 2012 – Jul 2020',
+    summary: 'Grew from frontline specialist to manager over eight years, ultimately leading teams of 10–15 across guest and host support, escalations, QA, and global product pilots.',
+    bullets: [
+      'Reduced dropped chats by 60% and cut customer wait times by 50% through live chat process optimization',
+      'Cut non-responsive chat handling time in half (12 min → 6 min) by designing and implementing a new workflow',
+      'Developed an invoice QA process for hotel rebook workflows, reducing errors by 20%',
+      'Led global product pilots across AMER, EMEA, and APAC — including the LiveChat rollout to 6,000+ partner agents',
+      'Maintained NPS of 65+ (target: 70) across guest and host support channels',
+      'Served as interim manager for Social Media and Payments teams during organizational transitions',
+      'Served as Americas POC for NICE platform rollout',
+    ],
+  },
+  {
+    title: 'Customer Support Representative',
+    company: 'Yahoo!',
+    location: 'Hillsboro, OR',
+    dates: '2011 – 2012',
+    summary: 'Account security, account verification, and fantasy sports support — handling volume, ambiguity, and a wide range of user issues across platforms.',
+    bullets: [],
+  },
+  {
+    title: 'Manager Associate',
+    company: 'Hertz',
+    location: 'Beaverton & Tigard, OR',
+    dates: '2006 – 2008',
+    summary: 'Fleet management, customer rentals, training new associates, and sales. Recognized as top 3 in sales across the Northwest region for Q4 2010 and Q1 2011. Co-developed a new hire checklist that expedited the rental process and improved sales conversion.',
+    bullets: [],
+  },
+];
+
+const certifications = [
+  'Certified Associate in Project Management (CAPM) — PMI',
+  'Lean Six Sigma Green Belt — Six Sigma Global Institute',
+  'LUMA Practitioner, Human-Centered Design Thinking',
+  'Salesforce Administrator (in progress)',
+];
+
+const tools = [
+  'Zendesk', 'ServiceNow', 'Workday', 'PowerBI', 'Tableau',
+  'Asana', 'Jira', 'NICE', 'Slack', 'Google Workspace', 'Salesforce (in progress)',
+];
+---
+
+<Layout title="Resume">
+
+  <!-- ── Header ── -->
+  <div class="mb-12 flex items-start justify-between gap-4">
+    <div>
+      <p class="font-label text-xs mb-3 tracking-widest" style="color: var(--accent);">RESUME</p>
+      <h1 class="font-display mb-3" style="font-size: 2.5rem;">Justin M. Hemp</h1>
+      <p class="text-sm" style="color: var(--muted);">
+        Portland, OR &nbsp;·&nbsp; justin.hemp@gmail.com &nbsp;·&nbsp; 541-760-4271 &nbsp;·&nbsp;
+        <a href="https://linkedin.com/in/justinhemp" target="_blank" style="color: var(--accent);">
+          linkedin.com/in/justinhemp
+        </a>
+      </p>
+    </div>
+    <a
+      href="/Justin_Hemp_Resume.pdf"
+      download
+      class="text-sm font-medium px-4 py-2 rounded-lg flex-shrink-0 mt-1"
+      style="border: 1px solid var(--border); color: var(--muted);"
+    >
+      Download PDF ↓
+    </a>
+  </div>
+
+  <!-- ── Summary ── -->
+  <section class="mb-12 max-w-2xl">
+    <p class="text-base" style="color: var(--text); line-height: 1.85;">
+      Operations and CX leader with 10+ years building and scaling support teams at global tech companies.
+      Known for turning messy processes into clean systems — and making those improvements stick through
+      strong documentation, coaching, and cross-functional alignment. Seeking roles in Operations,
+      Program Management, CX Strategy, People Ops, or Business Analysis.
+    </p>
+  </section>
+
+  <div style="border-top: 1px solid var(--border);" class="mb-12"></div>
+
+  <!-- ── Experience ── -->
+  <section class="mb-12">
+    <h2 class="font-label text-xs mb-10 tracking-widest" style="color: var(--accent);">EXPERIENCE</h2>
+
+    {experience.map((job, i) => (
+      <div class={i < experience.length - 1 ? 'mb-12' : ''}>
+        <div class="flex items-start justify-between gap-4 mb-1">
+          <h3 class="font-display text-xl" style="color: var(--text);">{job.title}</h3>
+          <span class="font-label text-xs flex-shrink-0 mt-1" style="color: var(--muted);">{job.dates}</span>
+        </div>
+        <p class="text-sm font-medium mb-3" style="color: var(--accent);">
+          {job.company} &nbsp;·&nbsp; {job.location}
+        </p>
+        <p class="text-sm mb-4" style="color: var(--muted); line-height: 1.7;">{job.summary}</p>
+        {job.bullets.length > 0 && (
+          <ul class="space-y-2">
+            {job.bullets.map(bullet => (
+              <li class="flex gap-3 text-sm" style="color: var(--text);">
+                <span style="color: var(--accent); flex-shrink: 0; margin-top: 1px;">—</span>
+                <span style="line-height: 1.6;">{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    ))}
+  </section>
+
+  <div style="border-top: 1px solid var(--border);" class="mb-12"></div>
+
+  <!-- ── Board Service ── -->
+  <section class="mb-12">
+    <h2 class="font-label text-xs mb-6 tracking-widest" style="color: var(--accent);">BOARD SERVICE</h2>
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h3 class="font-display text-xl mb-1" style="color: var(--text);">Board Secretary</h3>
+        <p class="text-sm font-medium mb-2" style="color: var(--accent);">Sherwood Charter School</p>
+        <p class="text-sm" style="color: var(--muted); line-height: 1.7;">
+          Led administrator contract renewal negotiation, charter renewal process, and facility
+          lease negotiations on behalf of the board.
+        </p>
+      </div>
+      <span class="font-label text-xs flex-shrink-0 mt-1" style="color: var(--muted);">2023 – Present</span>
+    </div>
+  </section>
+
+  <div style="border-top: 1px solid var(--border);" class="mb-12"></div>
+
+  <!-- ── Education & Certs ── -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-12 mb-12">
+    <section>
+      <h2 class="font-label text-xs mb-6 tracking-widest" style="color: var(--accent);">EDUCATION</h2>
+      <div class="space-y-4">
+        <div>
+          <p class="text-sm font-medium" style="color: var(--text);">Master of Business Administration</p>
+          <p class="text-sm" style="color: var(--muted);">Marylhurst University</p>
+        </div>
+        <div>
+          <p class="text-sm font-medium" style="color: var(--text);">B.S., Business Administration</p>
+          <p class="text-sm" style="color: var(--muted);">Oregon State University</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="font-label text-xs mb-6 tracking-widest" style="color: var(--accent);">CERTIFICATIONS</h2>
+      <div class="space-y-2">
+        {certifications.map(cert => (
+          <p class="text-sm" style="color: var(--text); line-height: 1.6;">{cert}</p>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <div style="border-top: 1px solid var(--border);" class="mb-12"></div>
+
+  <!-- ── Tools ── -->
+  <section>
+    <h2 class="font-label text-xs mb-6 tracking-widest" style="color: var(--accent);">TOOLS & TECHNOLOGY</h2>
+    <div class="flex flex-wrap gap-2">
+      {tools.map(tool => (
+        <span
+          class="font-label text-xs px-3 py-1 rounded-full"
+          style="background: var(--surface); border: 1px solid var(--border); color: var(--muted);"
+        >
+          {tool}
+        </span>
+      ))}
+    </div>
+  </section>
+
+</Layout>

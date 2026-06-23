@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'Pre-Market Stock Report',
+    badge: 'Python',
+    description: 'A daily automated report that pulls pre-market data from Alpaca, screens for movers via Finviz, and delivers a formatted email summary each morning via SendGrid. Built to solve a real personal problem — spending too much time manually pulling data before the market opens.',
+    tags: ['Alpaca API', 'Finviz', 'SendGrid', 'Python'],
+  },
+  {
+    title: 'This Site + Recruiter Chatbot',
+    badge: 'Astro',
+    description: 'Built from scratch using Astro and Tailwind CSS, deployed on Vercel. Includes a Claude-powered chatbot that recruiters can use to ask questions about my background, skills, and experience — answering from structured context without making things up.',
+    tags: ['Astro', 'Tailwind CSS', 'Claude API', 'Vercel'],
+  },
+];
+---
+
+<Layout title="Projects">
+
+  <p class="font-label text-xs mb-4 tracking-widest" style="color: var(--accent);">PROJECTS</p>
+  <h1 class="font-display mb-4" style="font-size: 2.5rem;">Things I've Built</h1>
+  <p class="text-lg mb-16 max-w-xl" style="color: var(--muted); line-height: 1.7;">
+    Side projects, automations, and things that started as curiosity and became something useful.
+  </p>
+
+  <div class="space-y-6">
+    {projects.map(project => (
+      <div
+        style="border: 1px solid var(--border); background: var(--surface);"
+        class="rounded-lg p-8"
+      >
+        <div class="flex items-start justify-between gap-4 mb-3">
+          <h2 class="font-display text-2xl" style="color: var(--text);">{project.title}</h2>
+          <span
+            class="font-label text-xs px-2 py-1 rounded flex-shrink-0 mt-1"
+            style="background: var(--accent-light); color: var(--accent);"
+          >
+            {project.badge}
+          </span>
+        </div>
+        <p class="text-sm mb-5" style="color: var(--muted); line-height: 1.75;">
+          {project.description}
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {project.tags.map(tag => (
+            <span
+              class="font-label text-xs px-2 py-1 rounded"
+              style="border: 1px solid var(--border); color: var(--muted);"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+</Layout>

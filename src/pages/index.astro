@@ -1,11 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+
+  <!-- ── Hero ── -->
+  <section class="mb-20">
+    <p class="font-label text-xs mb-5 tracking-widest" style="color: var(--accent);">
+      OPERATIONS & CX LEADER
+    </p>
+    <h1 class="font-display mb-6" style="font-size: 4rem; line-height: 1.1;">
+      <span class="hero-name">Justin M. Hemp</span>
+    </h1>
+    <p class="text-base font-label" style="color: var(--muted);">
+      MBA · CAPM · Lean Six Sigma Green Belt · LUMA Human-Centered Design
+    </p>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="mb-16 max-w-2xl">
+    <p class="text-lg mb-6" style="color: var(--text); line-height: 1.85;">
+      My career has lived at the intersection of operations and people — over a decade at Airbnb
+      and Autodesk building and improving the systems that make complex organizations actually work.
+      After a deliberate step back to sharpen my toolkit — MBA, CAPM, Lean Six Sigma Green Belt,
+      and LUMA Human-Centered Design — I'm focused on what's next: roles in Operations, Program
+      Management, CX Strategy, or Business Analysis where I can bring both structure and curiosity
+      to real problems.
+    </p>
+    <p class="text-lg" style="color: var(--text); line-height: 1.85;">
+      Outside of work, I serve as Board Secretary for Sherwood Charter School, where governance
+      and operations overlap in ways I find genuinely energizing. You'll also find me cooking
+      something ambitious on a weeknight, traveling when I can, or tinkering with projects like
+      the chatbot on this very site.
+    </p>
+  </section>
+
+  <!-- ── Quick Facts ── -->
+  <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
+    {[
+      { label: 'BASED IN',   value: 'Portland, OR' },
+      { label: 'OPEN TO',    value: 'Ops · PM · CX · BA roles' },
+      { label: 'BOARD ROLE', value: 'Sherwood Charter School' },
+    ].map(fact => (
+      <div
+        style="border: 1px solid var(--border); background: var(--surface);"
+        class="rounded-lg p-5"
+      >
+        <p class="font-label text-xs mb-2 tracking-widest" style="color: var(--accent);">
+          {fact.label}
+        </p>
+        <p class="text-sm font-medium" style="color: var(--text);">{fact.value}</p>
+      </div>
+    ))}
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="flex gap-3 flex-wrap">
+    <a
+      href="mailto:justin.hemp@gmail.com"
+      class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium"
+      style="background-color: var(--accent); color: white;"
+    >
+      Get in touch →
+    </a>
+    <a
+      href="/resume"
+      class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium"
+      style="border: 1px solid var(--border); color: var(--text);"
+    >
+      View Resume
+    </a>
+  </section>
+
 </Layout>
+
