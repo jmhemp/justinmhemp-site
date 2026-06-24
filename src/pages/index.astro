@@ -1,5 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
+div.innerHTML = text
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\n- /g, '<br>• ')
+  .replace(/\n/g, '<br>');
 ---
 
 <Layout title="Home">
