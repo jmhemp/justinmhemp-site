@@ -1,13 +1,10 @@
 ---
-div.innerHTML = text
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/\n- /g, '<br>• ')
-  .replace(/\n/g, '<br>');
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Home">
 
-  <!-- ── Hero ── -->
+  <!-- Hero -->
   <section class="mb-20">
     <p class="font-label text-xs mb-5 tracking-widest" style="color: var(--accent);">
       OPERATIONS & CX LEADER
@@ -20,7 +17,7 @@ div.innerHTML = text
     </p>
   </section>
 
-  <!-- ── About ── -->
+  <!-- About -->
   <section class="mb-16 max-w-2xl">
     <p class="text-lg mb-6" style="color: var(--text); line-height: 1.85;">
       My career has lived at the intersection of operations and people — over a decade at Airbnb
@@ -38,103 +35,73 @@ div.innerHTML = text
     </p>
   </section>
 
-  <!-- ── Quick Facts ── -->
+  <!-- Quick Facts -->
   <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
     {[
       { label: 'BASED IN',   value: 'Portland, OR' },
       { label: 'OPEN TO',    value: 'Ops · PM · CX · BA roles' },
       { label: 'BOARD ROLE', value: 'Sherwood Charter School' },
     ].map(fact => (
-      <div
-        style="border: 1px solid var(--border); background: var(--surface);"
-        class="rounded-lg p-5"
-      >
-        <p class="font-label text-xs mb-2 tracking-widest" style="color: var(--accent);">
-          {fact.label}
-        </p>
+      <div style="border: 1px solid var(--border); background: var(--surface);" class="rounded-lg p-5">
+        <p class="font-label text-xs mb-2 tracking-widest" style="color: var(--accent);">{fact.label}</p>
         <p class="text-sm font-medium" style="color: var(--text);">{fact.value}</p>
       </div>
     ))}
   </section>
 
-  <!-- ── CTA ── -->
-  <section class="flex gap-3 flex-wrap">
-    <a
-      href="mailto:justin.hemp@gmail.com"
-      class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium"
-      style="background-color: var(--accent); color: white;"
-    >
+  <!-- CTA -->
+  <section class="flex gap-3 flex-wrap mb-20">
+    <a href="mailto:justin.hemp@gmail.com" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium" style="background-color: var(--accent); color: white;">
       Get in touch →
     </a>
-    <a
-      href="/resume"
-      class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium"
-      style="border: 1px solid var(--border); color: var(--text);"
-    >
+    <a href="/resume" class="inline-flex items-center px-6 py-3 rounded-lg text-sm font-medium" style="border: 1px solid var(--border); color: var(--text);">
       View Resume
     </a>
   </section>
 
-  <!-- ── Marshall Chatbot ── -->
-  <section class="mt-20">
+  <!-- Marshall Chatbot -->
+  <section class="mt-4">
     <div style="border: 1px solid var(--border); background: var(--surface); border-radius: 12px; overflow: hidden; max-width: 600px;">
-      
-      <!-- Header -->
-      <div style="background: var(--accent); padding: 16px 20px; display: flex; align-items: center; gap-12px;">
-        <div>
-          <p style="color: white; font-weight: 500; font-size: 15px; margin: 0;">Marshall</p>
-          <p style="color: rgba(255,255,255,0.75); font-size: 12px; margin: 0; font-family: 'DM Mono', monospace;">Justin's AI assistant</p>
-        </div>
+      <div style="background: var(--accent); padding: 16px 20px;">
+        <p style="color: white; font-weight: 500; font-size: 15px; margin: 0;">Marshall</p>
+        <p style="color: rgba(255,255,255,0.75); font-size: 12px; margin: 0; font-family: 'DM Mono', monospace;">Justin's AI assistant</p>
       </div>
-
-      <!-- Messages -->
       <div id="chat-messages" style="height: 320px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px;">
         <div style="background: var(--bg); border-radius: 8px; padding: 12px 14px; max-width: 85%; font-size: 14px; line-height: 1.6; color: var(--text);">
           Hi! I'm Marshall, Justin's AI assistant. Ask me anything about his background, experience, or skills.
         </div>
       </div>
-
-      <!-- Input -->
       <div style="border-top: 1px solid var(--border); padding: 14px 16px; display: flex; gap: 8px;">
-        <input
-          id="chat-input"
-          type="text"
-          placeholder="Ask about Justin's experience..."
-          style="flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 14px; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); outline: none;"
-        />
-        <button
-          id="chat-send"
-          style="background: var(--accent); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: pointer;"
-        >
-          Send
-        </button>
+        <input id="chat-input" type="text" placeholder="Ask about Justin's experience..." style="flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 14px; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); outline: none;" />
+        <button id="chat-send" style="background: var(--accent); color: white; border: none; border-radius: 8px; padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: pointer;">Send</button>
       </div>
     </div>
   </section>
 
-<script>
+</Layout>
+
+<script is:inline>
   const messagesEl = document.getElementById('chat-messages');
   const inputEl = document.getElementById('chat-input');
   const sendBtn = document.getElementById('chat-send');
-  
   const messages = [];
 
   function addMessage(text, isUser) {
     const div = document.createElement('div');
-    div.style.cssText = `
-      background: ${isUser ? 'var(--accent)' : 'var(--bg)'};
-      color: ${isUser ? 'white' : 'var(--text)'};
-      border-radius: 8px;
-      padding: 12px 14px;
-      max-width: 85%;
-      font-size: 14px;
-      line-height: 1.6;
-      align-self: ${isUser ? 'flex-end' : 'flex-start'};
-    `;
+    div.style.cssText = [
+      'border-radius: 8px',
+      'padding: 12px 14px',
+      'max-width: 85%',
+      'font-size: 14px',
+      'line-height: 1.6',
+      isUser ? 'background: #2D6A4F' : 'background: var(--bg)',
+      isUser ? 'color: white' : 'color: var(--text)',
+      isUser ? 'align-self: flex-end' : 'align-self: flex-start',
+    ].join(';');
     div.innerHTML = text
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/\n- /g, '<br>• ')
-  .replace(/\n/g, '<br>');
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n- /g, '<br>• ')
+      .replace(/\n/g, '<br>');
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
@@ -142,38 +109,29 @@ div.innerHTML = text
   async function sendMessage() {
     const text = inputEl.value.trim();
     if (!text) return;
-
     inputEl.value = '';
     addMessage(text, true);
     messages.push({ role: 'user', content: text });
-
     sendBtn.disabled = true;
     sendBtn.textContent = '...';
-
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages }),
       });
-
       const data = await res.json();
-      const reply = data.message;
-      addMessage(reply, false);
-      messages.push({ role: 'assistant', content: reply });
-    } catch {
+      addMessage(data.message, false);
+      messages.push({ role: 'assistant', content: data.message });
+    } catch(e) {
       addMessage('Sorry, something went wrong. Please try again.', false);
     }
-
     sendBtn.disabled = false;
     sendBtn.textContent = 'Send';
   }
 
   sendBtn.addEventListener('click', sendMessage);
-  inputEl.addEventListener('keydown', (e) => {
+  inputEl.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') sendMessage();
   });
-  <script is:inline>
-
-</Layout>
-
+</script>
