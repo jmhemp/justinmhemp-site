@@ -131,7 +131,10 @@ div.innerHTML = text
       line-height: 1.6;
       align-self: ${isUser ? 'flex-end' : 'flex-start'};
     `;
-    div.textContent = text;
+    div.innerHTML = text
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\n- /g, '<br>• ')
+  .replace(/\n/g, '<br>');
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
