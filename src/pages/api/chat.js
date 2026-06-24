@@ -93,9 +93,11 @@ Only answer questions related to Justin's professional background. If asked abou
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Something went wrong' }), {
+    return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
+    });
+  }
     });
   }
 }
