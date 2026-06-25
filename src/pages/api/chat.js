@@ -98,6 +98,4 @@ Only answer questions related to Justin's professional background. If asked abou
       headers: { 'Content-Type': 'application/json' },
     });
   }
-    });
   }
-}
