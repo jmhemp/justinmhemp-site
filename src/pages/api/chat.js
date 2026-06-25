@@ -29,7 +29,7 @@ Community Support Manager → Team Coordinator → Specialist — Airbnb (Jul 20
 - Cut non-responsive chat handling time in half (12 min to 6 min)
 - Developed invoice QA process reducing errors by 20%
 - Led global product pilots across AMER, EMEA, and APAC
-- LiveChat rollout to 6,000+ partner agents
+- LiveChat rollout to 3,000+ partner agents
 - Maintained NPS of 65+ (target: 70)
 - Served as interim manager for Social Media and Payments teams
 - Americas POC for NICE platform rollout
