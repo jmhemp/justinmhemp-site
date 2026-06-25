@@ -37,7 +37,7 @@ Community Support Manager → Team Coordinator → Specialist — Airbnb (Jul 20
 Customer Support Representative — Yahoo! (2011-2012)
 Account security, verification, and fantasy sports support.
 
-Manager Associate — Hertz (2006-2008)
+Manager Associate — Hertz (2009-2011)
 Top 3 in sales in the Northwest region for Q4 2010 and Q1 2011.
 
 BOARD SERVICE
