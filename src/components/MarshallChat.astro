@@ -1,6 +1,4 @@
-<!-- Floating Marshall Chat Widget -->
-
-<!-- Toggle Button -->
+cat > ~/justinmhemp-site/src/components/MarshallChat.astro << 'ENDOFFILE'
 <button
   id="marshall-toggle"
   aria-label="Chat with Marshall"
@@ -30,7 +28,6 @@
   </svg>
 </button>
 
-<!-- Chat Window -->
 <div
   id="marshall-window"
   style="
@@ -69,15 +66,16 @@
       max-height: 360px;
     "
   >
-  <div style="background: var(--bg); border-radius: 8px; padding: 12px 14px; max-width: 88%; font-size: 14px; line-height: 1.6; color: var(--text);">
-    Hi! I'm Marshall, Justin's AI assistant. Ask me anything about his background, experience, or skills.
-  </div>
-  <div id="suggested-questions" style="display: flex; flex-direction: column; gap: 6px; align-self: flex-start; width: 100%;">
-    <p style="font-size: 11px; color: var(--muted); margin: 0; font-family: 'DM Mono', monospace;">Try asking:</p>
-    <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What did Justin do at Airbnb?</button>
-    <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What are Justin's biggest wins?</button>
-    <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What roles is Justin looking for?</button>
-    <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What certifications does Justin have?</button>
+    <div style="background: var(--bg); border-radius: 8px; padding: 12px 14px; max-width: 88%; font-size: 14px; line-height: 1.6; color: var(--text);">
+      Hi! I'm Marshall, Justin's AI assistant. Ask me anything about his background, experience, or skills.
+    </div>
+    <div id="suggested-questions" style="display: flex; flex-direction: column; gap: 6px; align-self: flex-start; width: 100%;">
+      <p style="font-size: 11px; color: var(--muted); margin: 0; font-family: 'DM Mono', monospace;">Try asking:</p>
+      <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What did Justin do at Airbnb?</button>
+      <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What are Justin's biggest wins?</button>
+      <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What roles is Justin looking for?</button>
+      <button class="suggestion-btn" style="background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 13px; color: var(--text); cursor: pointer; text-align: left;">What certifications does Justin have?</button>
+    </div>
   </div>
   <div style="border-top: 1px solid var(--border); padding: 12px 14px; display: flex; gap: 8px; flex-shrink: 0;">
     <input
@@ -202,3 +200,4 @@
   sendBtn.addEventListener('click', sendMessage);
   inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') sendMessage(); });
 </script>
+ENDOFFILE
