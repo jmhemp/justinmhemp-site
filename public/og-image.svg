@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 680 357">
+  <rect width="680" height="357" fill="#2D6A4F"/>
+  <rect x="60" y="60" width="560" height="237" rx="4" fill="#245C43"/>
+  <circle cx="100" cy="100" r="200" fill="#245C43" opacity="0.4"/>
+  <circle cx="580" cy="280" r="150" fill="#1E4F3A" opacity="0.5"/>
+  <text x="100" y="148" font-family="Georgia, serif" font-size="52" font-weight="700" fill="white">Justin M. Hemp</text>
+  <line x1="100" y1="168" x2="340" y2="168" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="100" y="204" font-family="Georgia, serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.85)">Operations &amp; CX Leader</text>
+  <text x="100" y="238" font-family="monospace, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" letter-spacing="1">MBA · CAPM · Lean Six Sigma Green Belt</text>
+  <circle cx="580" cy="88" r="38" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
+  <text x="580" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="700" fill="white">JH</text>
+  <text x="100" y="325" font-family="monospace, sans-serif" font-size="13" fill="rgba(255,255,255,0.4)" letter-spacing="1">justinmhemp.com</text>
+</svg>
